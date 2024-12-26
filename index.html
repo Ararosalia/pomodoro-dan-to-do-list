@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro Timer & To-Do List</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="main-container">
+        <!-- Pomodoro Timer Box -->
+        <div class="box pomodoro-box">
+            <h2>Pomodoro Timer</h2>
+            <label for="study-time">Study Time (minutes):</label>
+            <input type="number" id="study-time" placeholder="Enter study time" />
+            <label for="break-time">Break Time (minutes):</label>
+            <input type="number" id="break-time" placeholder="Enter break time" />
+            <div id="timer-buttons">
+                <button id="start-timer">Start Timer</button>
+                <button id="stop-timer">Stop Timer</button>
+            </div>
+            <div id="timer-display">
+                <span id="timer-label">Ready</span>
+                <div id="time">00:00</div>
+            </div>
+        </div>
+
+        <!-- To-Do List Box -->
+        <div class="box todo-box">
+            <h2>To-Do List</h2>
+            <div class="todo-input-container">
+                <input id="todo-input" type="text" placeholder="Add new task" />
+                <button id="add-todo">Add Task</button>
+            </div>
+            <ul id="todo-list"></ul>
+        </div>
+
+        <!-- Spotify Box -->
+        <div class="box spotify-box">
+            <h2>Spotify Player</h2>
+            <iframe 
+                style="border-radius:12px" 
+                src="https://open.spotify.com/embed/playlist/2sZYutAwhMODqCaS0mYj4Z?utm_source=generator" 
+                width="100%" 
+                height="352" 
+                frameBorder="0" 
+                allowfullscreen="" 
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                loading="lazy">
+            </iframe>
+        </div>
+    </div>
+    <audio id="alarm-sound" src="alarm.mp3"></audio>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

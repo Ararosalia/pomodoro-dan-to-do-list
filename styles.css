@@ -1,0 +1,245 @@
+/* Root Variables for Theme Customization */
+:root {
+    --font-family: 'Poppins', sans-serif;
+    --background-color: #f4d9f3;
+    --box-background: #ffffff;
+    --box-border: #ddd;
+    --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    --box-hover-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    --primary-color: #007bff;
+    --primary-hover-color: #0056b3;
+    --text-color: #444;
+    --secondary-text-color: #555;
+    --pomodoro-color: #e5baf9;
+    --todo-color: #cffeff;
+    --spotify-color: #b3c8fa;
+    --border-radius: 50px; /* Increased border radius */
+    --element-gap: 20px; /* Added gap variable */
+}
+
+/* Global Styles */
+body {
+    font-family: var(--font-family);
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+/* Main Container */
+#main-container {
+    display: flex;
+    gap: var(--element-gap); /* Added gap between boxes */
+    padding: var(--element-gap);
+    flex-wrap: wrap;
+    width: 90%;
+    max-width: 1200px;
+    box-sizing: border-box;
+    justify-content: space-around;
+}
+
+/* Shared Box Styles */
+.box {
+    flex: 1;
+    min-width: 300px;
+    padding: var(--element-gap);
+    background-color: var(--box-background);
+    box-shadow: var(--box-shadow);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--box-border);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Adjusted to align elements with proper spacing */
+    box-sizing: border-box;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    gap: var(--element-gap); /* Added gap between internal elements */
+}
+
+/* Hover Effect for Boxes */
+.box:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--box-hover-shadow);
+}
+
+/* Unique Box Styles */
+.pomodoro-box {
+    background-color: var(--pomodoro-color);
+}
+.todo-box {
+    background-color: var(--todo-color);
+}
+.spotify-box {
+    background-color: var(--spotify-color);
+}
+
+/* Text Styling */
+h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--text-color);
+    text-align: center;
+    margin-bottom: var(--element-gap);
+    border-radius: var(--border-radius);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0));
+    padding: 10px 20px;
+}
+
+/* Input Fields */
+input[type="number"],
+input[type="text"] {
+    width: 90%;
+    padding: 15px;
+    margin-top: 5px;
+    margin-bottom: var(--element-gap); /* Added gap between input fields */
+    border: 5px solid var(--box-border);
+    border-radius: var(--border-radius);
+    font-size: 1em;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    outline: none;
+}
+
+input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.2);
+}
+
+/* Buttons */
+button {
+    padding: 12px 20px;
+    font-size: 1em;
+    font-weight: bold;
+    border: none;
+    border-radius: var(--border-radius);
+    background-color: var(--primary-color);
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: var(--primary-hover-color);
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+/* Timer Buttons */
+#timer-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: var(--element-gap); /* Added gap between buttons */
+}
+
+#timer-buttons button {
+    flex: 1;
+}
+
+/* Timer Display */
+#timer-display {
+    text-align: center;
+    margin-top: var(--element-gap);
+}
+
+#time {
+    font-size: 3.5em;
+    font-weight: bold;
+    color: var(--text-color);
+    animation: pulse 1.5s infinite;
+    letter-spacing: 2px;
+}
+
+/* Pulse Animation for Timer */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+}
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+body div.notification {
+    animation: slideIn 0.3s ease-out, fadeOut 0.5s ease 4.5s forwards;
+}
+
+
+/* Todo List Items */
+ul#todo-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 0;
+    width: 100%;
+}
+
+ul#todo-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px; /* Added margin between list items */
+    background-color: #d4e9fc;
+    border: 1px solid var(--box-border);
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+ul#todo-list li:hover {
+    background-color: #f1f1f1;
+    box-shadow: var(--box-hover-shadow);
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    #main-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .box {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    #timer-buttons button {
+        margin: 5px 0;
+        font-size: 14px;
+    }
+}
